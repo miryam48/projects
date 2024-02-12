@@ -54,7 +54,7 @@ class _signupState extends State<signup> {
                 padd,
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red
+                        backgroundColor: Colors.black
                     ),
                     onPressed: (){},
                     child: Text('Sign Up')
