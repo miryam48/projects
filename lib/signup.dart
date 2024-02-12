@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 void main(){
-runApp(MaterialApp(debugShowCheckedModeBanner: false,home: signin(),));
+runApp(MaterialApp(debugShowCheckedModeBanner: false,home: signup(),));
 }
-class signin extends StatefulWidget {
-  const signin({super.key});
+class signup extends StatefulWidget {
+  const signup({super.key});
 
   @override
-  State<signin> createState() => _signinState();
+  State<signup> createState() => _signupState();
 }
 
-class _signinState extends State<signin> {
+class _signupState extends State<signup> {
   Widget padd=SizedBox(height: 10,);
   @override
   Widget build(BuildContext context) {
@@ -26,9 +26,9 @@ class _signinState extends State<signin> {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
-                      'Sign In',
+                    'Sign Up',
                     style: TextStyle(
-                      fontSize: 25
+                        fontSize: 25
                     ),
                   ),
                 ),
@@ -36,28 +36,28 @@ class _signinState extends State<signin> {
                 TextField(
                   decoration: InputDecoration(
                       hintText: ('EMail or Phone number'),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
 
-                    )
+                      )
                   ),
                 ),
                 padd,
                 TextField(
                   decoration: InputDecoration(
-                    hintText: ('Password'),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)
-                 )
+                      hintText: ('Password'),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)
+                      )
                   ),
                 ),
                 padd,
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red
-                  ),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red
+                    ),
                     onPressed: (){},
-                    child: Text('Sign In')
+                    child: Text('Sign Up')
                 )
               ],
             ),
