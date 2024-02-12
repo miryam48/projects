@@ -1,13 +1,23 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-void main(){
-runApp(MaterialApp(debugShowCheckedModeBanner: false,home: signin(),));
-}
+
 class signin extends StatefulWidget {
   const signin({super.key});
 
   @override
   State<signin> createState() => _signinState();
 }
+
+TextEditingController _inemailcontroller=TextEditingController();
+TextEditingController _inpasswordcontroller=TextEditingController();
+
+Future signIn() async{
+  await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _inemailcontroller.text,
+      password: _inpasswordcontroller.text
+  );
+}
+
 
 class _signinState extends State<signin> {
   Widget padd=SizedBox(height: 10,);
@@ -34,6 +44,7 @@ class _signinState extends State<signin> {
                 ),
                 padd,
                 TextField(
+                  controller: _inemailcontroller,
                   decoration: InputDecoration(
                       hintText: ('EMail or Phone number'),
                     border: OutlineInputBorder(
@@ -44,6 +55,7 @@ class _signinState extends State<signin> {
                 ),
                 padd,
                 TextField(
+                  controller: _inpasswordcontroller,
                   decoration: InputDecoration(
                     hintText: ('Password'),
                     border: OutlineInputBorder(
@@ -56,7 +68,9 @@ class _signinState extends State<signin> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black
                   ),
-                    onPressed: (){},
+                    onPressed: (){
+                    signIn();
+                    },
                     child: Text('Sign In')
                 )
               ],

@@ -1,12 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-void main(){
-runApp(MaterialApp(debugShowCheckedModeBanner: false,home: signup(),));
-}
+
 class signup extends StatefulWidget {
   const signup({super.key});
 
   @override
   State<signup> createState() => _signupState();
+}
+TextEditingController _emailcontroller=TextEditingController();
+TextEditingController _passwordcontroller=TextEditingController();
+
+Future signUp() async{
+  await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: _emailcontroller.text,
+      password: _passwordcontroller.text
+  );
 }
 
 class _signupState extends State<signup> {
@@ -34,6 +42,7 @@ class _signupState extends State<signup> {
                 ),
                 padd,
                 TextField(
+                  controller: _emailcontroller,
                   decoration: InputDecoration(
                       hintText: ('EMail or Phone number'),
                       border: OutlineInputBorder(
@@ -44,6 +53,7 @@ class _signupState extends State<signup> {
                 ),
                 padd,
                 TextField(
+                  controller: _passwordcontroller,
                   decoration: InputDecoration(
                       hintText: ('Password'),
                       border: OutlineInputBorder(
@@ -56,7 +66,9 @@ class _signupState extends State<signup> {
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black
                     ),
-                    onPressed: (){},
+                    onPressed: (){
+                      signUp();
+                    },
                     child: Text('Sign Up')
                 )
               ],

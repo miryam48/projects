@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-void main()async{
+import 'package:projectsini/login.dart';
+import 'package:projectsini/signup.dart';
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: FirebaseOptions(
@@ -70,9 +72,7 @@ class _myappState extends State<myapp> {
           )
         ),
       ),
-      body: Center(
-        child: Text('Hallo World'),
-      ),
+      body: signup(),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           showDialog(
