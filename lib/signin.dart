@@ -70,6 +70,7 @@ class _signinState extends State<signin> {
                   ),
                     onPressed: (){
                     signIn();
+                    Navigator.pop(context);
                     },
                     child: Text('Sign In')
                 )
