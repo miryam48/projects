@@ -55,6 +55,7 @@ class _signinState extends State<signin> {
                 ),
                 padd,
                 TextField(
+                  obscureText: true,
                   controller: _inpasswordcontroller,
                   decoration: InputDecoration(
                     hintText: ('Password'),
