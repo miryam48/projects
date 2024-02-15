@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:projectsini/login.dart';
 
 class signup extends StatefulWidget {
   const signup({super.key});
@@ -68,6 +69,7 @@ class _signupState extends State<signup> {
                     ),
                     onPressed: (){
                       signUp();
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=> signin()));
                     },
                     child: Text('Sign Up')
                 )
